@@ -1,0 +1,4 @@
+SUBSYSTEMS=="usb", ATTRS{product}=="FT232R USB UART", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", SYMLINK+="arduino arduino_$attr{serial}"
+SUBSYSTEMS=="usb", ATTRS{product}=="ARDUINO NANO",    ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", SYMLINK+="arduino arduino_nano_$attr{serial}"
+
+
