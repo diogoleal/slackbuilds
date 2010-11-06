@@ -1,0 +1,9 @@
+esmtp is a user configurable relay-only Mail Transfer Agent (MTA) with a
+sendmail compatible syntax.  It's based on <<libESMTP>> supporting the
+AUTH (including the CRAM-MD5 and NTLM SASL mechanisms) and the StartTLS SMTP
+extensions.
+
+See the http://esmtp.sourceforge.net/ESMTP MTA home page for updated information.
+
+This requires the libesmtp (on SlackBuilds.org)
+
