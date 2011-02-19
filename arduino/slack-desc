@@ -16,4 +16,4 @@ arduino:
 arduino: The environment is written in Java and based on Processing, 
 arduino: avr-gcc, and other open source software. 
 arduino:
-arduino: 
+arduino: Requires: ant-apache, avr-binutils, avr-gcc, avr-dude, jdk.
