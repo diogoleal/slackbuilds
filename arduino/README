@@ -4,4 +4,4 @@ Arduino can sense the environment by receiving input from a variety of sensors a
 
 The open-source Arduino environment makes it easy to write code and upload it to the i/o board. It runs on Windows, Mac OS X, and Linux. The environment is written in Java and based on Processing, avr-gcc, and other open source software. 
 
-
+Requires: ant-apache, avr-binutils, avr-gcc, avr-dude, jdk.

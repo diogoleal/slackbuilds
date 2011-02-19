@@ -1,5 +1,5 @@
 PRGNAM="arduino"
-VERSION="0021"
+VERSION="0022"
 HOMEPAGE="www.arduino.cc"
 DOWNLOAD="http://arduino.googlecode.com/files/arduino-0021.tgz"
 MD5SUM="0f53873712b51774e96c0bdf987289dd"
