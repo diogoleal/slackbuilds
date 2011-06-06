@@ -2,7 +2,7 @@
 
 # Slackware build script for exaile 
 # Written by Marco Cecchetti (mrc.ildp@gmail.com)
-# Update by Diogo Leal (diogo@diogoleal.com)
+#Update by Diogo Leal (diogo@diogoleal.com)
 
 PRGNAM=exaile
 VERSION=${VERSION:-0.3.2.1}
