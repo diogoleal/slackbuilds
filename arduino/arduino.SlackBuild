@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for Arduino IDE
+#Slackware build script for Arduino IDE
 # Written by Diogo Leal (diogo@diogoleal.com)
 
 PRGNAM=arduino
