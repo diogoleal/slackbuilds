@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
        |-----handy-ruler------------------------------------------------------|
-atunes: aTunes is a full-featured audio player and manager. 
-atunes:
-atunes: Currently plays mp3, ogg, wma, wav, flac, mp4 and radio streaming, 
-atunes: allowing users to easily edit tags, organize music and rip Audio CDs. 
-atunes: 
-atunes: 
-atunes:  website: http://www.atunes.org/
-atunes: 
-atunes:  
-atunes:  
-atunes:
+ardentryst: Ardentryst
+ardentryst: is an open-source free game written exclusively by Jordan Trudgett.
+ardentryst: It works to combine elements of fighting, arcade, adventure, RPG
+ardentryst: and sidescrolling games to give the game a very unique genre
+ardentryst: 
+ardentryst: 
+ardentryst: 
+ardentryst: 
+ardentryst: Required: pygames 
+ardentryst:
+ardentryst: 

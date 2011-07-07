@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Slackware build script for aTunes
-# Written by Diogo Leal(estranho) - diogo@diogoleal.com
+# Slackware build script for Ardentryst 
+# Written by Diogo Leal (diogo@diogoleal.com)
 
-PRGNAM=atunes
-VERSION=${VERSION:-2.0.1}
-BUILD=${BUILD:-2}
+PRGNAM=ardentryst
+VERSION=${VERSION:-1.71}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 CWD=$(pwd)
 
@@ -21,8 +21,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 rm -rf $TMP/$PRGNAM-$VERSION
 cd $TMP
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-mv $PRGNAM-$VERSION-SNAPSHOT $PRGNAM-$VERSION
+tar zxvf $CWD/ardentryst1.71.tar.gz
 cd $PKG
 chown -R root:root . 
 find . \
@@ -30,16 +29,13 @@ find . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
-cd $TMP
-cd $PRGNAM-$VERSION
-cp aTunes.sh aTunes
-chmod +x aTunes
-mkdir -p $PKG/opt/aTunes
-rm -rf *.exe *.dll *.ico win_tools libJXGrabKey.so
-cp -a * $PKG/opt/aTunes
 
-install -D -m 644 $CWD/atunes.desktop $PKG/usr/share/applications/atunes.desktop
-install -D -m 644 $CWD/atunes.png $PKG/usr/share/pixmaps/atunes.png
+mkdir -p $PKG/usr/share/games/ardentryst/
+cd $CWD/ardentryst1.71/
+cp -a *  $PKG/usr/share/games/ardentryst/
+ 
+install -D -m 644 $CWD/ardentryst.desktop $PKG/usr/share/applications/ardentryst.desktop
+install -D -m 644 $PKG/usr/share/games/ardentryst/icon.png $PKG/usr/share/pixmaps/ardentryst.png
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
