@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# Slackware build script for Processing
+# Written by Diogo Leal (diogo@diogoleal.com)
+
+PRGNAM=processing
+VERSION=${VERSION:-1.5.1}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+CWD=$(pwd)
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+ARCH=i486
+
+set -e 
+
+rm -rf $PKG 
+mkdir -p $TMP $PKG $OUTPUT
+rm -rf $TMP/$PRGNAM-$VERSION
+cd $TMP
+tar xvf $CWD/$PRGNAM-$VERSION-linux.tgz
+cd $PKG
+chown -R root:root . 
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+ -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+ -exec chmod 644 {} \;
+
+mkdir -p $PKG/opt
+cp -a ../$PRGNAM-$VERSION $PKG/opt/$PRGNAM
+
+install -D -m 644 $CWD/processing.desktop $PKG/usr/share/applications/processing.desktop
+install -D -m 644 $CWD/processing.png $PKG/usr/share/pixmaps/processing.png
+
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+mkdir -p $PKG/etc/udev/rules.d/
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
