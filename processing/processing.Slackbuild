@@ -12,8 +12,15 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-ARCH=i486
 
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) ARCH=i486 ;;
+    arm*) ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) ARCH=$( uname -m ) ;;
+  esac
+fi
 set -e 
 
 rm -rf $PKG 
@@ -32,6 +39,14 @@ find . \
 mkdir -p $PKG/opt
 cp -a ../$PRGNAM-$VERSION $PKG/opt/$PRGNAM
 
+if [ $ARCH == x86_64 ]; then
+    echo $ARCH 
+else 
+    echo "oi?"
+fi
+exit 0
+
+
 install -D -m 644 $CWD/processing.desktop $PKG/usr/share/applications/processing.desktop
 install -D -m 644 $CWD/processing.png $PKG/usr/share/pixmaps/processing.png
 
@@ -41,7 +56,6 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
-mkdir -p $PKG/etc/udev/rules.d/
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
