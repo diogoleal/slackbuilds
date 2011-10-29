@@ -39,14 +39,6 @@ find . \
 mkdir -p $PKG/opt
 cp -a ../$PRGNAM-$VERSION $PKG/opt/$PRGNAM
 
-if [ $ARCH == x86_64 ]; then
-    echo $ARCH 
-else 
-    echo "oi?"
-fi
-exit 0
-
-
 install -D -m 644 $CWD/processing.desktop $PKG/usr/share/applications/processing.desktop
 install -D -m 644 $CWD/processing.png $PKG/usr/share/pixmaps/processing.png
 
