@@ -1,0 +1,6 @@
+What is pev
+
+A little command-line based tool for PE (Windows executables) analysis,
+ tested on Linux, Windows and OSX systems. In addition, is written in C
+ following ANSI standard, so it's possible to compile pev in many other 
+systems. pev is free and open source software, under GPLv3 license. 
