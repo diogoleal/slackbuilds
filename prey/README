@@ -1,0 +1,98 @@
+##############################################
+# Prey - Track down your stolen laptop
+# http://preyproject.com
+# A project by Tomas Pollak
+##############################################
+
+Prey is a lightweight application for tracking your stolen laptop.
+
+It runs in Windows and *NIX systems as well (Mac, Linux). It is licensed
+by the GPLv3 which means you can do just about anything with it, as long as
+you respect the licence's terms.
+
+For up to date information check the project's website at preyproject.com.
+
+##############################################
+1. How it works
+##############################################
+
+The script runs at a specified interval in your machine, and checks
+for a specified URL on the web. If the URL does not exist it means the
+PC has been stolen, and thus goes through the information
+gathering routine and sends all that info through to a previously defined
+email address. You can also not define a URL and in that case the program
+will send the data every time it runs, although it is *not* recommended.
+
+Since 0.3.3, you can use a web control panel (control.preyproject.com)
+to manage your computer's state, as well as toggling different modules for
+triggering certain behaviours remotely. In this case you don't have to
+worry about the URL thing since it takes care of that for you. You only
+need to set up your user account when installing Prey.
+
+##############################################
+2. Installation
+##############################################
+
+ -- Linux users (not Debian/Ubuntu)
+
+Once you've downloaded the package, unzip it and move all the contents to a
+folder of your choice (we use /usr/share/prey). Then you need to open up the
+config file and change your settings according to your configuration. If
+you're using the Control Panel, then you only need to insert your API and
+Device keys; otherwise you need to set up your SMTP server settings.
+
+Finally, you need to add a crontab entry for root. You can do this by typing
+the following in a terminal:
+
+$ (sudo crontab -l | grep -v prey; echo "*/20 * * * * /usr/share/prey/prey.sh > /var/log/prey.log") | sudo crontab -
+
+##############################################
+3. Requisites for Linux
+##############################################
+
+Mac comes with everything needed to run Prey. However Linux users should make
+sure they have the following installed: (note the installer does this
+automatically!)
+
+	o curl / wget
+	o scrot or imagemagick (for screenshot capture)
+	o streamer (for webcam capture) --> in Fedora the xawtv package includes it
+	o Perl libs IO::Socket::SSL and NET::SSLeay
+
+##############################################
+4. Usage
+##############################################
+
+The idea is that when your laptop gets stolen -- hopefully never, that is --
+you should immediately activate Prey, by marking the device as missing
+in the Control Panel, or by deleting the URL you specified in Prey's
+configuration. This depends on the operation mode (post method) you set up
+when installing Prey.
+
+Prey expects a status code 404 to run. If it receives a status 200 it will
+simply shut down and wait for the next interval to check the URL.
+
+##############################################
+5. Troubleshooting
+##############################################
+
+Prey has a 'check mode' to verify it's settings are correct.
+Prey can also be run manually by removing the '--check' argument, Prey will 
+begin running immediately. It will try to contact the Control Panel (or a 
+custom server) & send a report if it detects it is marked as missing. You 
+should see the results of this process echoed directly back to your terminal 
+window.
+
+ > Check Mode - Linux & Mac
+Type the following in a terminal:
+$ sudo /usr/share/prey/prey.sh --check
+
+ > Full run - Linux & Mac
+Type the following in a terminal:
+$ sudo /usr/share/prey/prey.sh
+
+Additional support & troubleshooting information can be found at: 
+
+http://support.preyproject.com/
+
+

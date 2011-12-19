@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+prey: Prey - Track down your stolen laptop 
+prey:
+prey: Prey is a lightweight application for tracking your stolen laptop.
+prey: 
+prey: It runs in Windows and *NIX systems as well (Mac, Linux). It is licensed 
+prey: by the GPLv3 which means you can do just about anything with it, as long  
+prey: as you respect the licence's terms. 
+prey: 
+prey: http://preyproject.com
+prey:  
+prey:
