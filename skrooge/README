@@ -1,0 +1,9 @@
+skrooge (KDE4 Finance Application)
+
+Skrooge allows you to manage your personal finances, powered by KDE 4.x. Thanks to its many features, it is one of the most powerful way to enter, follow, and analyze your expenses.
+
+Based on its KDE foundations, Skrooge can run on many platforms, including of course linux, BSD, Solaris, but also on Mac OS, and possibly on Windows.
+
+Skrooge is part of KDE Extragear, and is released under the GPL V3 licence.
+
+This requires libofx.

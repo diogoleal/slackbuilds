@@ -5,7 +5,7 @@
 
 PRGNAM=atunes
 VERSION=${VERSION:-2.1.0}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
 CWD=$(pwd)
 
@@ -13,7 +13,7 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-ARCH=i486
+ARCH=noarch
 
 set -e 
 
